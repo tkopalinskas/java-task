@@ -9,11 +9,16 @@ public class Main {
         long initialValueA = 0;
         long initialValueB = 0;
         if (args.length == 2) {
-            Long argValueA = Long.valueOf(args[0]);
-            Long argValueB = Long.valueOf(args[1]);
-            if (argValueA instanceof Long && argValueB instanceof Long) {
+            try {
+                Long argValueA = Long.valueOf(args[0]);
+                Long argValueB = Long.valueOf(args[1]);
                 initialValueA = argValueA;
                 initialValueB = argValueB;
+            } catch (NumberFormatException e) {
+                System.out.println(e);
+                System.out.println("Using default numbers");
+                initialValueA = valueA;
+                initialValueB = valueB;
             }
         } else {
             initialValueA = valueA;
