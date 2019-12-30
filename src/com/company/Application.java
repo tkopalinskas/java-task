@@ -12,7 +12,7 @@ public class Application {
 
     private int counter = 0;
 
-    private int revolotions = 0;
+    private int iterations = 0;
 
     Application(long valueA, long valueB) {
         this.valueA = valueA;
@@ -21,19 +21,19 @@ public class Application {
 
     public void startApplication() {
         generateAndCompare(valueA, valueB);
-        System.out.println("count: " + counter);
+        System.out.println("Count: " + counter);
     }
 
     private void generateAndCompare(long valueA, long valueB) {
         long remainderA = valueA;
         long remainderB = valueB;
-        while (revolotions < MILLION) {
-            remainderA = GeneratorA.generateValue(remainderA);
-            remainderB = GeneratorB.generateValue(remainderB);
+        while (iterations < MILLION) {
+            remainderA = Generator.generateA(remainderA);
+            remainderB = Generator.generateB(remainderB);
             if (Comperator.compare(remainderA, remainderB)) {
                 counter++;
             }
-            revolotions++;
+            iterations++;
         }
     }
 }

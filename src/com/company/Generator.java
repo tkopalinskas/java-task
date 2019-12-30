@@ -1,9 +1,14 @@
 package com.company;
 
-public interface Generator {
+public class Generator {
 
-    public final int divider = Integer.MAX_VALUE;
+    public static long generateA(long initialValue) {
+        long factor = 16807L;
+        return (initialValue * factor) % Application.divider;
+    }
 
-    public Long generateValue(Long initialValue);
-
+    public static long generateB(long initialValue) {
+        long factor = 48271L;
+        return (initialValue * factor) % Application.divider;
+    }
 }
